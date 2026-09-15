@@ -10,33 +10,156 @@
   <title>Secure Calculator</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <main>
-    <h1>Secure Calculator</h1>
+  <main class="calculator-app">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">SECURE CALCULATOR</p>
+        <h1>Calculator</h1>
+      </div>
 
-    <form id="calculator-form">
-      <label for="first-number">First number</label>
-      <input id="first-number" name="first-number" type="text" required>
+      <button
+        id="history-toggle"
+        class="header-button"
+        type="button"
+        aria-label="Show calculation history"
+      >
+        History
+      </button>
+    </header>
 
-      <label for="operation">Operation</label>
-      <select id="operation" name="operation">
-        <option value="+">+</option>
-        <option value="-">−</option>
-        <option value="*">×</option>
-        <option value="/">÷</option>
-      </select>
+    <section class="calculator">
+      <div class="display-panel">
+        <p id="expression" class="expression"></p>
+        <output id="display" class="display" aria-live="polite">0</output>
+      </div>
 
-      <label for="second-number">Second number</label>
-      <input id="second-number" name="second-number" type="text" required>
+      <form id="calculator-form">
+        <input
+          id="first-number"
+          name="first-number"
+          type="text"
+          autocomplete="off"
+          tabindex="-1"
+          hidden
+        >
 
-      <button type="submit">Calculate</button>
-    </form>
+        <select id="operation" name="operation" tabindex="-1" hidden>
+          <option value="+">+</option>
+          <option value="-">−</option>
+          <option value="*">×</option>
+          <option value="/">÷</option>
+        </select>
 
-    <p id="error-message" role="alert"></p>
-    <p id="result"></p>
+        <input
+          id="second-number"
+          name="second-number"
+          type="text"
+          autocomplete="off"
+          tabindex="-1"
+          hidden
+        >
 
-    <section>
-      <h2>Calculation History</h2>
+        <div class="keypad" aria-label="Calculator keypad">
+          <button type="button" class="key function-key" data-action="clear">
+            C
+          </button>
+
+          <button type="button" class="key function-key" data-action="clear-entry">
+            CE
+          </button>
+
+          <button type="button" class="key function-key" data-action="backspace">
+            ⌫
+          </button>
+
+          <button type="button" class="key operator-key" data-operation="/">
+            ÷
+          </button>
+
+          <button type="button" class="key number-key" data-number="7">
+            7
+          </button>
+
+          <button type="button" class="key number-key" data-number="8">
+            8
+          </button>
+
+          <button type="button" class="key number-key" data-number="9">
+            9
+          </button>
+
+          <button type="button" class="key operator-key" data-operation="*">
+            ×
+          </button>
+
+          <button type="button" class="key number-key" data-number="4">
+            4
+          </button>
+
+          <button type="button" class="key number-key" data-number="5">
+            5
+          </button>
+
+          <button type="button" class="key number-key" data-number="6">
+            6
+          </button>
+
+          <button type="button" class="key operator-key" data-operation="-">
+            −
+          </button>
+
+          <button type="button" class="key number-key" data-number="1">
+            1
+          </button>
+
+          <button type="button" class="key number-key" data-number="2">
+            2
+          </button>
+
+          <button type="button" class="key number-key" data-number="3">
+            3
+          </button>
+
+          <button type="button" class="key operator-key" data-operation="+">
+            +
+          </button>
+
+          <button type="button" class="key function-key" data-action="toggle-sign">
+            +/−
+          </button>
+
+          <button type="button" class="key number-key" data-number="0">
+            0
+          </button>
+
+          <button type="button" class="key number-key" data-number=".">
+            .
+          </button>
+
+          <button type="submit" class="key equals-key">
+            =
+          </button>
+        </div>
+      </form>
+
+      <p id="error-message" class="error-message" role="alert"></p>
+      <p id="result" class="result-message"></p>
+    </section>
+
+    <section id="history-panel" class="history-panel" aria-labelledby="history-title">
+      <div class="history-heading">
+        <div>
+          <p class="eyebrow">RECENT</p>
+          <h2 id="history-title">Calculation History</h2>
+        </div>
+
+        <button id="clear-history" class="clear-history-button" type="button">
+          Clear
+        </button>
+      </div>
+
       <ul id="history"></ul>
     </section>
   </main>
