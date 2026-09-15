@@ -37,9 +37,12 @@ jobs:
 
       - name: Prepare Pages artifact
         run: |
-          mkdir -p dist
-          cp index.html style.css dist/
-          touch dist/.nojekyll
+          rm -rf pages-site
+          mkdir -p pages-site
+          cp index.html style.css pages-site/
+          cp dist/app.js pages-site/app.js
+          sed -i 's#dist/app.js#app.js#' pages-site/index.html
+          touch pages-site/.nojekyll
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -47,7 +50,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./pages-site
 
   deploy:
     environment:
