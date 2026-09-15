@@ -23,3 +23,8 @@ test('rejects non-string values', () => {
   expect(isValidNumber(5)).toBe(false);
   expect(isValidNumber({})).toBe(false);
 });
+test('rejects unsupported numeric formats', () => {
+  expect(isValidNumber('0x10')).toBe(false);
+  expect(isValidNumber('1e3')).toBe(false);
+  expect(isValidNumber('5.')).toBe(false);
+});
