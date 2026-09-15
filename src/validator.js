@@ -11,6 +11,10 @@ function isValidNumber(value) {
     return false;
   }
 
+  if (!/^-?(?:\d+(?:\.\d+)?|\.\d+)$/.test(value)) {
+    return false;
+  }
+
   return Number.isFinite(Number(value));
 }
 
