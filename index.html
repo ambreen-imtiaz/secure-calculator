@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self'; object-src 'none'; base-uri 'self';"
+  >
+  <title>Secure Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Secure Calculator</h1>
+
+    <form id="calculator-form">
+      <label for="first-number">First number</label>
+      <input id="first-number" name="first-number" type="text" required>
+
+      <label for="operation">Operation</label>
+      <select id="operation" name="operation">
+        <option value="+">+</option>
+        <option value="-">−</option>
+        <option value="*">×</option>
+        <option value="/">÷</option>
+      </select>
+
+      <label for="second-number">Second number</label>
+      <input id="second-number" name="second-number" type="text" required>
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <p id="error-message" role="alert"></p>
+    <p id="result"></p>
+
+    <section>
+      <h2>Calculation History</h2>
+      <ul id="history"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
