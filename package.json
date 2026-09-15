@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint src/ app.js"
+    "lint": "eslint src/ app.js",
+    "build": "esbuild app.js --bundle --outfile=dist/app.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "description": "",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "esbuild": "^0.28.2",
     "eslint": "^10.10.0",
     "jest": "^30.5.1"
   }
